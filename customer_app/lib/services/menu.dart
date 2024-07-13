@@ -19,7 +19,8 @@ class MenuService {
   }
   
   static Future<List<dynamic>> getMenuItems(dynamic filters) async {
-    dynamic url = Uri.parse('${baseUrl}menu/items/${String.fromEnvironment('BRANCH_ID')}${createHttpParams(filters)})');
+    const branchId = String.fromEnvironment('BRANCH_ID');
+    dynamic url = Uri.parse('${baseUrl}menu/items/$branchId${createHttpParams(filters)})');
     final response = await http.get(url);
     
     if (response.statusCode == 200) {
@@ -30,7 +31,8 @@ class MenuService {
   }
 
   static Future<List<dynamic>> getPopularItems() async {
-    final response = await http.get(Uri.parse('${baseUrl}menu/popular/${String.fromEnvironment('BRANCH_ID')}'));
+    const branchId = String.fromEnvironment('BRANCH_ID');
+    final response = await http.get(Uri.parse('${baseUrl}menu/popular/$branchId'));
     
     if (response.statusCode == 200 || response.statusCode == 201) {
       return jsonDecode(response.body);

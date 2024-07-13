@@ -7,9 +7,9 @@ import 'package:cloudinary/cloudinary.dart';
 
 class CloudinaryService {
   static final cloudinary = Cloudinary.signedConfig(
-    apiKey: String.fromEnvironment('CLOUDINARY_API_KEY'),
-    apiSecret: String.fromEnvironment('CLOUDINARY_API_SECRET'),
-    cloudName: String.fromEnvironment('CLOUDINARY_CLOUD_NAME'),
+    apiKey: const String.fromEnvironment('CLOUDINARY_API_KEY'),
+    apiSecret: const String.fromEnvironment('CLOUDINARY_API_SECRET'),
+    cloudName: const String.fromEnvironment('CLOUDINARY_CLOUD_NAME'),
   );
 
   static upload (File? file, String folder) async {

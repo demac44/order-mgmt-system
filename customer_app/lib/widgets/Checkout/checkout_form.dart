@@ -199,7 +199,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
         'payment_method_types[]': 'card', 
       }; 
 
-      var secretKey = String.fromEnvironment('STRIPE_SECRET_KEY');
+      const secretKey = String.fromEnvironment('STRIPE_SECRET_KEY');
 
       var response = await http.post( 
         Uri.parse('https://api.stripe.com/v1/payment_intents'), 

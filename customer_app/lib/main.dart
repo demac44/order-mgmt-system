@@ -1,17 +1,14 @@
-import 'package:customer_app/config/config.dart';
-import 'package:customer_app/screens/product/index.dart';
 import 'package:flutter/material.dart';
 import 'screens/home/index.dart';
 import 'screens/cart/index.dart';
 import "services/cart.dart";
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() async {
   
   WidgetsFlutterBinding.ensureInitialized(); 
-  Stripe.publishableKey = String.fromEnvironment('STRIPE_PUBLISHABLE_KEY'); 
-  Stripe.stripeAccountId = String.fromEnvironment('STRIPE_ACCOUNT_ID');
+  Stripe.publishableKey = const String.fromEnvironment('STRIPE_PUBLISHABLE_KEY', defaultValue: ''); 
+  Stripe.stripeAccountId = const String.fromEnvironment('STRIPE_ACCOUNT_ID', defaultValue: '');
   await Stripe.instance.applySettings();
 
   runApp(const MyApp());

@@ -8,21 +8,21 @@ export class MenuController {
         private readonly menuService: MenuService
     ){}
 
-
-    @Get(':branchId')
-    async getMenu(@Param('branchId') branchId: number){
-        return await this.menuService.getMenu(branchId);
+    @Get('popular/:branchId')
+    async getPopularItems(@Param('branchId') branchId: number){
+        return await this.menuService.getPopularItems(branchId);
     }
+
+    // @Get(':branchId')
+    // async getMenu(@Param('branchId') branchId: number){
+    //     return await this.menuService.getMenu(branchId);
+    // }
 
     @Get('all/:branchId')
     async getMenus(@Param('branchId') branchId: number){
         return await this.menuService.getMenus(branchId);
     }
 
-    @Get('popular/:branchId')
-    async getPopularItems(@Param('branchId') branchId: number){
-        return await this.menuService.getPopularItems(branchId);
-    }
 
     @Get('item/:itemId')
     async getMenuItem(@Param('itemId') itemId: number){
