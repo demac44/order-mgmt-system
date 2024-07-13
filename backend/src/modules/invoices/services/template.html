@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+</head>
+<body>
+    <h1>Invoice # {{orderNumber}}</h1>
+    <h3>Order date: {{orderDate}}</h3>
+
+
+    <div style="">
+        <h3>Order items:</h3>
+        {{#items}}
+        <div style="border: 1px solid black; padding: 20px;">
+            <h4>{{name}}</h4>
+            <p>Price: {{price}}</p>
+            <p>Quantity: {{quantity}}</p>
+            <p>Total: {{total}}</p>
+        </div>
+        {{/items}}
+    </div>
+
+    <h3>Total: {{total}}</h3>
+</body>
+</html>
