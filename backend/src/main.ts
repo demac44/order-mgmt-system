@@ -16,9 +16,9 @@ async function bootstrap() {
   app.enableCors(corsConfig)
 
     cloudinary.config({ 
-    cloud_name: 'dq5s8yqae', 
-    api_key: '612996359637128', 
-    api_secret: 'szixv1qj-OLbEnw91GltLKnOiEo' 
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+    api_key: process.env.CLOUDINARY_API_KEY, 
+    api_secret: process.env.CLOUDINARY_API_SECRET 
   });
 
   await app.listen(process.env.PORT || 5000);
